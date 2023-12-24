@@ -7,10 +7,38 @@ const overlay=document.querySelector('.overlay');
 const endMessage=document.querySelector('.end-message');
 const newGameModal=document.querySelector('.new-game-modal');
 const newButton=document.querySelector('.new-game-btn');
+const tossButton=document.querySelector('.toss-button');
+const tossModal=document.querySelector('.toss-modal');
+const activeModal=document.querySelector('.modal-active');
+const activeModalClose=document.querySelector('.active-modal-close')
+const tossText=document.querySelector('.toss-text');
 
 const list=['O','X'];
 let activePlayer=0;
 let cellList = ['', '', '', '', '', '', '', '', ''];
+
+function randomGen()
+{
+    return Math.trunc(Math.random()*2);
+}
+
+
+function toss()
+{
+  tossModal.style.display='none';
+  activeModal.classList.remove('hidden');
+  activePlayer=randomGen();
+  tossText.textContent=`Player ${list[activePlayer]} will play first`;
+  message.textContent=`Player ${list[activePlayer]}'s turn`;
+}
+//Toss button function 
+tossButton.addEventListener('click',toss)
+
+
+activeModalClose.addEventListener('click',function()
+{
+  activeModal.classList.add('hidden');
+})
 
 //Function to check winners
 function checkWinner() {
@@ -54,6 +82,7 @@ function noWin()
     endMessage.textContent='No winner';
   }
 }
+
 //User Clicks 
 for(let i=0;i<cell.length;i++)
 {
@@ -83,7 +112,7 @@ for(let i=0;i<cell.length;i++)
         else{
             console.log('No winner');
         }
-        noWin();
+        noWin()
     })
 }
 
@@ -108,4 +137,5 @@ newButton.addEventListener('click',function()
   {
     document.querySelector(`.cell-${i}-img`).classList.add('hidden');
   }
+  tossModal.style.display='block';
 })
