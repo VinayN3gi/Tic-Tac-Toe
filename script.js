@@ -1,4 +1,4 @@
-
+//Defining variables 
 const cell=document.querySelectorAll('.cell');
 const message=document.getElementById('message');
 const closeBtn=document.querySelector('.close-modal')
@@ -6,6 +6,7 @@ const modal=document.querySelector('.modal');
 const overlay=document.querySelector('.overlay');
 const endMessage=document.querySelector('.end-message');
 const newGameModal=document.querySelector('.new-game-modal');
+const newButton=document.querySelector('.new-game-btn');
 
 const list=['O','X'];
 let activePlayer=0;
@@ -40,10 +41,22 @@ function checkWinner() {
   return null;
 }
 
+
+//All cells are filled
+function noWin()
+{
+  if(cellList.includes(''))
+  {
+    return null; 
+  }
+  else{
+    newGameModal.classList.remove('hidden');
+    endMessage.textContent='No winner';
+  }
+}
 //User Clicks 
 for(let i=0;i<cell.length;i++)
 {
-
     cell[i].addEventListener('click',function()
     {
         
@@ -70,6 +83,7 @@ for(let i=0;i<cell.length;i++)
         else{
             console.log('No winner');
         }
+        noWin();
     })
 }
 
@@ -84,4 +98,14 @@ overlay.addEventListener('click',function()
 {
     modal.classList.add('hidden');
     overlay.classList.add('hidden');
+})
+
+newButton.addEventListener('click',function()
+{
+  newGameModal.classList.add('hidden');
+  cellList = ['', '', '', '', '', '', '', '', ''];
+  for(let i=0;i<cell.length;i++)
+  {
+    document.querySelector(`.cell-${i}-img`).classList.add('hidden');
+  }
 })
