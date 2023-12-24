@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Tic Tac Toe Game</title>
+</head>
+<body>
+<div class="container">
+    <h1>Tic Tac Toe</h1>
+    <div id="message">Player O's turn</div>
+    <div class="board" id="board">
+        <div class="cell" data-index="0">
+            <img class='cell-0-img hidden'  src="o.png">
+        </div>
+        <div class="cell" data-index="1">
+            <img class='cell-1-img hidden ' src="o.png">
+        </div>
+        <div class="cell" data-index="2">
+            <img class='cell-2-img hidden ' src="o.png">
+        </div>
+        <div class="cell" data-index="3">
+            <img class='cell-3-img hidden ' src="o.png">
+        </div>
+        <div class="cell" data-index="4">
+            <img class='cell-4-img hidden ' src="o.png">
+        </div>
+        <div class="cell" data-index="5">
+            <img class='cell-5-img hidden ' src="o.png">
+        </div>
+        <div class="cell" data-index="6">
+            <img class='cell-6-img hidden ' src="o.png">
+        </div>
+        <div class="cell" data-index="7">
+            <img class='cell-7-img hidden ' src="o.png">
+        </div>
+        <div class="cell" data-index="8">
+            <img class='cell-8-img hidden ' src="o.png">
+        </div>
+        <div class="modal hidden ">
+            <button class="close-modal">&times;</button>
+            <h1>Invalid move</h1>
+        </div>
+        <div class="overlay hidden"></div>
+    </div>
+        <div class="new-game-modal hidden ">
+        <button class="new-game-btn"> New Game</button>
+        <h1 class="end-message">No winner </h1>
+        </div>
+        <div class="overlay hidden"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
